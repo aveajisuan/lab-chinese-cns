@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>世界杯直播 · 稳定导航页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f5f9fc;
+      color: #1c2f3b;
+      line-height: 1.6;
+      padding: 0 16px;
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 0 60px;
+    }
+
+    /* -- 顶部导航 -- */
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      padding: 12px 20px;
+      border-radius: 32px;
+      box-shadow: 0 4px 10px rgba(0, 40, 50, 0.05);
+      margin-bottom: 40px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #166e77;
+      letter-spacing: 0.3px;
+    }
+
+    .logo-symbol {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #2aa5b0;
+      border-radius: 3px;
+      transform: rotate(45deg);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: #2b5f6a;
+      text-decoration: none;
+      padding: 4px 2px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #2aa5b0;
+    }
+
+    .nav-highlight a {
+      font-weight: 600;
+      color: #166e77;
+    }
+
+    /* -- hero区块 -- */
+    .hero {
+      background: linear-gradient(135deg, #e0f1f4 0%, #c9e6ea 100%);
+      border-radius: 40px;
+      padding: 48px 36px;
+      margin-bottom: 48px;
+      box-shadow: 0 8px 18px rgba(30, 80, 90, 0.06);
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.3px;
+      color: #0b424b;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      max-width: 650px;
+      color: #235b65;
+    }
+
+    .hero a {
+      color: #0b6b77;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 2px;
+    }
+
+    /* -- 场景网格卡片 -- */
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #10434e;
+      margin-bottom: 20px;
+      padding-left: 4px;
+      border-left: 5px solid #2aa5b0;
+      padding-left: 16px;
+    }
+
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .scene-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 28px 20px 24px;
+      box-shadow: 0 6px 14px rgba(0, 50, 60, 0.04);
+      transition: transform 0.2s, box-shadow 0.25s;
+      border: 1px solid #e1eff2;
+    }
+
+    .scene-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(30, 100, 110, 0.10);
+      border-color: #b5d9df;
+    }
+
+    .card-icon {
+      display: inline-block;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      letter-spacing: -2px;
+      color: #1e7a86;
+    }
+
+    .scene-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #10434e;
+      margin-bottom: 8px;
+    }
+
+    .scene-card p {
+      font-size: 0.92rem;
+      color: #3f5f68;
+    }
+
+    .scene-card a {
+      color: #166e77;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* -- 常见说明 -- */
+    .faq-section {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 28px 28px 20px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 12px rgba(20, 60, 70, 0.04);
+    }
+
+    .faq-section h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #0b424b;
+      margin-bottom: 18px;
+    }
+
+    .faq-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #e6f0f2;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #1b5f6b;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+    }
+
+    .faq-a {
+      font-size: 0.92rem;
+      color: #3f5f68;
+      line-height: 1.6;
+    }
+
+    .faq-a a {
+      color: #166e77;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    /* -- 页脚 -- */
+    .footer-note {
+      text-align: center;
+      margin-top: 40px;
+      padding: 24px 0 10px;
+      font-size: 0.85rem;
+      color: #648b94;
+      border-top: 1px solid #d5e7eb;
+    }
+
+    .footer-note a {
+      color: #1d7885;
+      text-decoration: underline;
+    }
+
+    /* -- 响应式 -- */
+    @media (max-width: 600px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 16px 18px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .hero {
+        padding: 34px 20px;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .scene-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-section {
+        padding: 20px 16px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      body {
+        padding: 0 10px;
+      }
+      .page {
+        padding: 16px 0 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <div class="logo-area">
+      <span class="logo-symbol"></span>
+      <span>⚽ 赛程导航</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">首页</a>
+      <a href="#">观赛指南</a>
+      <span class="nav-highlight"><a href="https://chinese-cns-worldcup.com">世界杯直播</a></span>
+      <a href="#">常见问题</a>
+    </div>
+  </nav>
+
+  <!-- hero 介绍 -->
+  <section class="hero">
+    <h1>一个稳定的入口</h1>
+    <p>
+      很多朋友在寻找可信的观赛渠道。这个页面整理了关于 <a href="https://chinese-cns-worldcup.com">世界杯直播</a>
+      的一些基本说明与实用场景——不绕弯子，只讲怎么用、什么时候用、什么最需要注意。
+      偶尔打开，心里有数。
+    </p>
+  </section>
+
+  <!-- 三个场景模块 -->
+  <h2 class="section-title">三个常用场景</h2>
+  <div class="scene-grid">
+
+    <div class="scene-card">
+      <div class="card-icon">📱</div>
+      <h3>移动端随时查看</h3>
+      <p>
+        如果你习惯用手机浏览，可以直接在浏览器打开
+        <a href="https://chinese-cns-worldcup.com">世界杯直播</a>，
+        页面适配了窄屏，边栏、比分、时间都看得比较清楚。适合通勤或午休时瞥一眼。
+      </p>
+    </div>
+
+    <div class="scene-card">
+      <div class="card-icon">🖥️</div>
+      <h3>桌面大屏多窗口</h3>
+      <p>
+        在电脑上把 <a href="https://chinese-cns-worldcup.com">世界杯直播</a>
+        放在副屏，同时处理其他事情。大屏模式下信息密度更高，适合同时关注小组出线形势。
+      </p>
+    </div>
+
+    <div class="scene-card">
+      <div class="card-icon">🔁</div>
+      <h3>赛前快速确认</h3>
+      <p>
+        不确定今天有没有比赛？先打开
+        <a href="https://chinese-cns-worldcup.com">世界杯直播</a>
+        扫一眼赛程，确认开球时间、对阵双方，心里有底再安排其他事。
+      </p>
+    </div>
+
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <section class="faq-section">
+    <h2>常见说明</h2>
+
+    <div class="faq-item">
+      <span class="faq-q">这个页面和直播网站什么关系？</span>
+      <div class="faq-a">
+        这是介绍和导航页。如果你需要直接看比赛，可以前往
+        <a href="https://chinese-cns-worldcup.com">世界杯直播</a>，
+        那里提供赛程和实时内容。本页只负责说明和入口提示。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <span class="faq-q">为什么强调“稳定入口”？</span>
+      <div class="faq-a">
+        赛事期间，很多临时链接会更换。直接使用
+        <a href="https://chinese-cns-worldcup.com">世界杯直播</a>
+        作为固定书签，可以省去每次重新搜索的时间。建议加个收藏。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <span class="faq-q">页面打不开或加载慢怎么办？</span>
+      <div class="faq-a">
+        先检查自己的网络环境。如果确实无法访问，可以稍后再试，或换个时段。
+        我们不提供代理或绕过类建议。所有内容以
+        <a href="https://chinese-cns-worldcup.com">世界杯直播</a>
+        实际状态为准。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <span class="faq-q">需要注册或下载吗？</span>
+      <div class="faq-a">
+        通常不需要。打开网址就能看到内容。
+        但根据具体直播源，部分功能可能会要求登录，具体请留意页面的提示。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    仅作导航与说明 · 所有赛事相关以 <a href="https://chinese-cns-worldcup.com">世界杯直播</a> 页面为准
+  </div>
+
+</div>
+</body>
+</html>
