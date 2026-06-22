@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v体育 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9f6f0;
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            color: #2c2c2c;
+            line-height: 1.75;
+            padding: 2rem 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        /* 主视觉区 — 米白与灰的节奏 */
+        .hero {
+            text-align: left;
+            padding: 3rem 0 2rem 0;
+            border-bottom: 1px solid #e2dcd0;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 450;
+            letter-spacing: -0.02em;
+            color: #1f1f1f;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #5f5c54;
+            max-width: 70%;
+            border-left: 3px solid #b7a68b;
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* 信息卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .card {
+            background: #fefcf8;
+            border-radius: 18px;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03), 0 8px 20px rgba(80,70,50,0.04);
+            border: 1px solid #eee8de;
+            transition: box-shadow 0.2s ease, transform 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(60, 55, 45, 0.07);
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            margin-bottom: 0.9rem;
+            color: #2f2b25;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #48443d;
+            margin-bottom: 0.8rem;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #ece7dd;
+            color: #3f3a32;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 0.3px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* 适合人群卡片 — 独立列表风格 */
+        .audience-block {
+            background: #fefbf7;
+            border: 1px solid #e3dcd0;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            margin: 2.2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem 2.5rem;
+        }
+
+        .audience-item {
+            flex: 1 1 160px;
+        }
+
+        .audience-item h3 {
+            font-size: 1.1rem;
+            font-weight: 450;
+            color: #2c2822;
+            margin-bottom: 0.4rem;
+            border-bottom: 1px dashed #d5cdbe;
+            padding-bottom: 0.3rem;
+        }
+
+        .audience-item p {
+            font-size: 0.95rem;
+            color: #555148;
+        }
+
+        /* 引用 / 提示框 */
+        .notice-box {
+            background: #f2ede4;
+            border-left: 6px solid #b7a283;
+            padding: 1.6rem 2rem;
+            border-radius: 0 14px 14px 0;
+            margin: 2.2rem 0;
+            font-size: 1rem;
+            color: #3a352d;
+        }
+
+        .notice-box strong {
+            font-weight: 550;
+            color: #2b261f;
+        }
+
+        .notice-box a {
+            color: #5a4c38;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color 0.15s;
+        }
+
+        .notice-box a:hover {
+            color: #1f1a12;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            font-size: 1.05rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e3dbcf;
+            margin-top: 1rem;
+        }
+
+        .link-paragraph a {
+            color: #514a3d;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color 0.15s;
+        }
+
+        .link-paragraph a:hover {
+            color: #1e1913;
+        }
+
+        /* FAQ 摘要 */
+        .faq-section {
+            margin: 2.8rem 0 1.5rem;
+            padding: 0;
+        }
+
+        .faq-section h2 {
+            font-size: 1.6rem;
+            font-weight: 450;
+            margin-bottom: 1.4rem;
+            color: #2b2720;
+        }
+
+        .faq-item {
+            margin-bottom: 1.6rem;
+            border-bottom: 1px solid #e8e0d4;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #3f392f;
+            margin-bottom: 0.4rem;
+        }
+
+        .faq-item p {
+            font-size: 0.98rem;
+            color: #5b554b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .sub {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .audience-block {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1.5rem;
+            }
+            .notice-box {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* 小标记 */
+        .muted-meta {
+            color: #8e8679;
+            font-size: 0.8rem;
+            display: block;
+            margin-top: 0.3rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e5ddcf;
+            margin: 0.8rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 主视觉 -->
+    <section class="hero">
+        <h1>v体育 · 一份简明指南</h1>
+        <div class="sub">
+            有关访问、内容与使用节奏的几点记录，写给初次接触或想更安静使用的人。
+        </div>
+        <span class="muted-meta">—— 基于日常观察整理的笔记式页面</span>
+    </section>
+
+    <!-- 用途卡片：信息卡片式主视觉延伸 -->
+    <div class="card-grid">
+        <div class="card">
+            <h2>信息整合</h2>
+            <p>页面结构偏向于索引式浏览，将不同类别的运动资讯与数据以卡片形式聚合。适合快速扫读，也支持按兴趣深入。</p>
+            <span class="tag">分类清晰</span>
+            <span class="tag">数据摘要</span>
+        </div>
+        <div class="card">
+            <h2>主题场景</h2>
+            <p>覆盖日常赛事动态、项目科普、以及部分观察向内容。不刻意追逐热点，更看重内容本身的完整性。</p>
+            <span class="tag">赛事动态</span>
+            <span class="tag">项目科普</span>
+        </div>
+        <div class="card">
+            <h2>阅读节奏</h2>
+            <p>文字密度中等，段落间留有间隔。配合米白背景与适中字号，减少长时间浏览的视觉负担。</p>
+            <span class="tag">低干扰</span>
+            <span class="tag">版面留白</span>
+        </div>
+    </div>
+
+    <!-- 适合人群 (独立块) -->
+    <div class="audience-block">
+        <div class="audience-item">
+            <h3>日常关注者</h3>
+            <p>习惯每周花一点时间了解运动趋势、赛事背景的人。不需要推送轰炸，更在意可回溯的内容。</p>
+        </div>
+        <div class="audience-item">
+            <h3>信息整理偏好者</h3>
+            <p>喜欢自己筛选阅读节奏，对页面结构有一定要求：分类、标签、摘要清晰，减少无关干扰。</p>
+        </div>
+        <div class="audience-item">
+            <h3>静默访问者</h3>
+            <p>不希望被自动播放、弹窗或强引导打断。访问时能够保持自主浏览状态。</p>
+        </div>
+    </div>
+
+    <!-- 提示框 / 引用块 — 访问提醒角度 -->
+    <div class="notice-box">
+        <strong>访问提醒 · 一则笔记</strong><br>
+        如果你对某个运动领域只有模糊的兴趣，建议先利用站内的标签筛选或分类索引，比直接搜索更节省精力。
+        另外，部分外部链接会打开新窗口，浏览器返回时请注意标签页位置。<br><br>
+        关于信息来源：页面内容多整理自公开赛事资料与运动项目档案，引用时会标注出处，但建议对关键数据做二次核实。
+        尤其涉及赛程、排名等动态信息时，以官方发布为准。这是一个辅助阅读性质的整理页面。
+    </div>
+
+    <!-- 自然链接段落 — 严格包含 v体育 文本 -->
+    <div class="link-paragraph">
+        说到如何更系统地整理自己的运动阅读清单，我偶尔会去 <a href="https://index-vsport.com">v体育</a> 看看它们的分类方式，
+        虽然不是唯一参考，但卡片式的布局对回溯信息有些帮助。你可以根据自己的兴趣做对比和筛选。
+    </div>
+
+    <!-- FAQ 摘要 (简洁) -->
+    <section class="faq-section">
+        <h2>FAQ 摘要 · 常见想法</h2>
+        <div class="faq-item">
+            <h3>这个页面适合快速了解某个运动吗？</h3>
+            <p>它更像一个索引入口。如果你需要入门级的解释，可以先从分类卡片中的“项目科普”标签开始；如果想看数据，可以关注带有“数据摘要”标签的卡片。整体阅读顺序自由。</p>
+        </div>
+        <div class="faq-item">
+            <h3>访问时有什么特别需要注意的？</h3>
+            <p>页面不使用自动播放媒体，也没有强制弹窗。但建议使用较新版本的浏览器，某些自定义排版在老旧浏览器上可能显示不全。另外，内容属于长期维护型，偶尔会有结构微调。</p>
+        </div>
+        <div class="faq-item">
+            <h3>为什么强调“简明指南”和“访问提醒”？</h3>
+            <p>因为信息环境复杂，一个平实、有节制的介绍页反而能帮人节省注意力。这里没有夸张的承诺，只是一份安静的说明。</p>
+        </div>
+    </section>
+
+    <!-- 一个极简脚注 / 版本感 (无链接，纯装饰) -->
+    <hr>
+    <p style="color:#8f887c; font-size:0.9rem; margin-top:0.5rem; text-align:right;">
+        页面内容基于公开信息整理 · 仅作个人参考用途
+    </p>
+
+</body>
+</html>
